@@ -5,12 +5,14 @@ import {settings} from "./assets";
 import {About, Home} from "./pages";
 import {useMainContext} from "./contexts/MainContextProvider";
 import {Navbar, Settings, Sidebar} from "./components";
+import {useThemeContext} from "./contexts/ThemeContextProvider";
 
 
 function App() {
     // const activeSideBar = true
 
     const {activeSidebar, activeThemeSettings, setActiveThemeSettings} = useMainContext()
+    const {themeColor} = useThemeContext()
 
     return (
         <BrowserRouter>
@@ -21,7 +23,7 @@ function App() {
                     <button
                         type="button"
                         className="p-2 rounded-full cursor-pointer hover:drop-shadow-md"
-                        style={{backgroundColor: "blue"}}
+                        style={{backgroundColor: themeColor}}
                         onClick={() => setActiveThemeSettings(prevState => !prevState)}>
                         <img
                             src={settings}

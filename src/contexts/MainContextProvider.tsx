@@ -30,7 +30,7 @@ export const useMainContext = () => {
 
     if (!mainContext) {
         throw new Error(
-            "mainContext has to be used within <MainContext.Provider>"
+            "MainContext has to be used within <MainContext.Provider>"
         );
     }
 

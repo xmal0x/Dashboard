@@ -1,9 +1,12 @@
 import React from 'react';
 import {useMainContext} from "../contexts/MainContextProvider";
 import {themeColors} from "../constants";
+import {CheckIcon} from "@heroicons/react/24/outline";
+import {useThemeContext} from "../contexts/ThemeContextProvider";
 
 const Settings = () => {
     const {setActiveThemeSettings} = useMainContext()
+    const {themeColor, setThemeColor} = useThemeContext()
 
     return (
         <>
@@ -19,10 +22,15 @@ const Settings = () => {
                             {themeColors.map(item => (
                                 <button
                                     type="button"
-                                    className={`w-10 h-10 rounded-full bg-black`}
-                                    onClick={() => {}}
+                                    className="w-12 h-12 rounded-full cursor-pointer"
+                                    style={{backgroundColor: item.color}}
+                                    onClick={() => setThemeColor(item.color)}
+                                    title={item.name}
                                 >
-
+                                    <CheckIcon
+                                        color="white"
+                                        strokeWidth={3}
+                                        className={`h-[25px] w-full ${themeColor === item.color ? 'block' : 'hidden'}`}/>
                                 </button>
                             ))}
                         </div>
