@@ -1,26 +1,70 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {settings} from "./assets";
+import {About, Home} from "./pages";
+import {useMainContext} from "./contexts/MainContextProvider";
+import {Navbar, Settings, Sidebar} from "./components";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // const activeSideBar = true
+
+    const {activeSidebar, activeThemeSettings, setActiveThemeSettings} = useMainContext()
+
+    return (
+        <BrowserRouter>
+            <div className="flex relative">
+
+                {/*Settings Button*/}
+                <div className="fixed bottom-4 right-4 z-50">
+                    <button
+                        type="button"
+                        className="p-2 rounded-full cursor-pointer hover:drop-shadow-md"
+                        style={{backgroundColor: "blue"}}
+                        onClick={() => setActiveThemeSettings(prevState => !prevState)}>
+                        <img
+                            src={settings}
+                            alt="settings"
+                            className="object-contain w-[25px] h-[25px] hover:scale-125 transition duration-300"/>
+                    </button>
+                </div>
+
+                {/*SideBar*/}
+                {activeSidebar
+                    ? (
+                        <div className="w-72 fixed bg-amber-200 z-50">
+                            <Sidebar/>
+                        </div>
+                    )
+                    : (
+                        <div className="w-0">
+                            <Sidebar/>
+                        </div>
+                    )
+                }
+
+                {/*Content*/}
+                <div className={`${activeSidebar ? 'md:ml-72' : 'flex-1'} w-full min-h-screen bg-amber-700`}>
+                    <div className="fixed md:static w-full bg-amber-950 text-white">
+                        <Navbar/>
+                    </div>
+
+                    <div>
+
+                        {activeThemeSettings && <Settings/>}
+
+                        <Routes>
+                            <Route path="/" element={<Home/>}/>
+                            <Route path="/home" element={<Home/>}/>
+                            <Route path="/about" element={<About/>}/>
+                        </Routes>
+                    </div>
+                </div>
+
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;
