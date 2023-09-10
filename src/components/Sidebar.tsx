@@ -8,49 +8,55 @@ import {useThemeContext} from "../contexts/ThemeContextProvider";
 
 const Sidebar = () => {
     const {setActiveSidebar} = useMainContext()
-    const {themeColor} =useThemeContext()
+    const {themeColor} = useThemeContext()
 
     return (
-        <aside className="h-screen p-4">
+        <aside className="h-screen p-10 text-white">
             <div className="flex justify-between items-center">
-                <Link to="/" className="flex gap-2 font-bold  text-xl items-center">
-                    <FireIcon className="w-[25px] h-[25px]" style={{color: themeColor}}/>
-                    <span>PORTY</span>
+                <Link to="/" className="flex gap-2 font-medium tracking-tight text-3xl items-center">
+                    <FireIcon className="w-[40px] h-[40px]" style={{color: themeColor}}/>
+                    <span>PortyAdmin</span>
                 </Link>
 
-                <button
-                    type="button"
-                    onClick={() => setActiveSidebar(false)}
-                    className="rounded-full p-1 md:hidden block"
-                    style={{backgroundColor: themeColor}}
-                >
-                    <XCircleIcon className="h-[25px] w-[25px] hover:scale-125 transition duration-300"/>
-                </button>
+                {/*<button*/}
+                {/*    type="button"*/}
+                {/*    onClick={() => setActiveSidebar(false)}*/}
+                {/*    className="rounded-full p-1 md:hidden block"*/}
+                {/*    style={{backgroundColor: themeColor}}*/}
+                {/*>*/}
+                {/*    <XCircleIcon className="h-[25px] w-[25px] hover:scale-125 transition duration-300"/>*/}
+                {/*</button>*/}
             </div>
 
-            <div className="mt-10">
+            <h2 className="mt-10 text-xl text-gray">MENU</h2>
+
+            <nav className="mt-4">
                 {sideBarItems.map(item => (
-                    <div
+                    <ol
                         key={item.title}
+                        className="mb-8"
                     >
-                        <p className="uppercase text-amber-900 text-xl mb-4">
-                            {item.title}
-                        </p>
+                        <div className="flex items-center mb-6">
+                            <span className="w-6 h-6">{item.icon}</span>
+                            <p className="capitalize text-white-100 text-xl ml-2">
+                                {item.title}
+                            </p>
+                        </div>
                         {item.links.map(link => (
-                            <NavLink
-                                to={`/${link.link}`}
-                                key={link.link}
-                                className={({isActive}) => `flex items-center gap-2 cursor-pointer
-                                hover:bg-[${themeColor}] hover:text-white p-3 rounded-md`}
-                            >
-                                <img src={link.icon} alt={link.title} className="object-contain w-[25px]"/>
-                                <span>{link.title}</span>
-                            </NavLink>
+                            <li className="ml-8 flex gap-2 mb-3">
+                                <NavLink
+                                    to={`/${link.link}`}
+                                    key={link.link}
+                                    className={({isActive}) => `cursor-pointer hover:text-white ${isActive ? 'text-white-100' : 'text-gray'}`}
+                                >
+                                    <span>{link.title}</span>
+                                </NavLink>
+                            </li>
                         ))}
 
-                    </div>
+                    </ol>
                 ))}
-            </div>
+            </nav>
 
         </aside>
     );

@@ -6,17 +6,20 @@ interface MainContextType {
     activeThemeSettings: boolean
     setActiveThemeSettings: (value: boolean | ((prevState: boolean) => boolean)) => void
     handleSetPopovers: (value: keyof typeof navbarPopoversState) => void
+    handleClosePopovers: () => void
     popovers: NavbarPopovers
 }
 
 interface NavbarPopovers {
     notifications: boolean
     profile: boolean
+    messages: boolean
 }
 
 const navbarPopoversState: NavbarPopovers = {
     notifications: false,
-    profile: false
+    profile: false,
+    messages: false
 }
 
 const MainContext = createContext<MainContextType | null>(null)
@@ -29,6 +32,9 @@ export const MainContextProvider = ({children}: { children: React.ReactNode }) =
     const handleSetPopovers = (popover: keyof typeof navbarPopoversState) => {
         setPopovers({...navbarPopoversState, [popover]: true})
     }
+
+    const handleClosePopovers = () => setPopovers(navbarPopoversState)
+
     return (
         <MainContext.Provider value={{
             activeSidebar,
@@ -36,6 +42,7 @@ export const MainContextProvider = ({children}: { children: React.ReactNode }) =
             activeThemeSettings,
             setActiveThemeSettings,
             handleSetPopovers,
+            handleClosePopovers,
             popovers
         }}>
             {children}

@@ -1,50 +1,88 @@
 import React from 'react';
-import {BellAlertIcon, Bars3Icon, UserCircleIcon} from "@heroicons/react/24/outline";
+import {
+    Bars3Icon,
+    BellIcon,
+    ChatBubbleOvalLeftEllipsisIcon,
+    ChevronDownIcon,
+    MagnifyingGlassIcon
+} from "@heroicons/react/24/outline";
 import {useMainContext} from "../contexts/MainContextProvider";
 import {useThemeContext} from "../contexts/ThemeContextProvider";
-import {Notifications, Profile} from "./index";
+import {Messages, Notifications, Profile} from "./index";
+import {useUserContext} from "../contexts/UserContextProvider";
 
 interface NavButtonProps {
     icon: React.ReactNode
     title: string
-    color: string
     dotColor?: string
     onClick: () => void
+    hasNew?: boolean
 }
 
-const NavButton = ({icon, onClick, title, dotColor, color}: NavButtonProps) => {
+const NavButton = ({icon, onClick, title, dotColor, hasNew = false}: NavButtonProps) => {
     return (
         <button
-            className="relative rounded-full p-2 h-10 w-10 bg-amber-300 "
-            style={{color}}
+            className="relative rounded-full p-2 h-10 w-10 bg-light-gray text-dark-gray"
             title={title}
             onClick={onClick}
         >
-            <span className="absolute w-3 h-3 top-1 rounded-full opacity-80" style={{backgroundColor: dotColor}}></span>
+            {(hasNew && dotColor) && <span className="absolute w-3.5 h-3.5 top-0 right-0.5 rounded-full bg-white">
+                <span className="absolute top-0.5 rounded-full right-0.5 w-2.5 h-2.5"
+                      style={{backgroundColor: dotColor}}>
+                </span>
+            </span>}
             {icon}
         </button>
     )
 }
 
-const iconClass: string = 'w-[25px] h-[25px] hover:scale-125 transition duration-300'
+const iconClass: string = 'w-6 h-6 hover:scale-125 transition duration-300'
 
 const Navbar = () => {
     const {setActiveSidebar, popovers, handleSetPopovers} = useMainContext()
     const {themeColor} = useThemeContext()
+    const {firstName, lastName, position, image} = useUserContext()
 
     return (
-        <div className="relative flex justify-between items-center p-3 h-24">
-            <NavButton icon={<Bars3Icon className={iconClass}/>} title="Menu" color={themeColor} onClick={() => setActiveSidebar((prev) => !prev)} />
-        
-            <div className="flex gap-3">
-                <NavButton icon={<BellAlertIcon className={iconClass}/>} title="Notifications" color={themeColor} onClick={() => handleSetPopovers('notifications')} dotColor={themeColor} />
-                <NavButton icon={<UserCircleIcon className={iconClass}/>} title="Profile" color={themeColor} onClick={() => handleSetPopovers('profile')} dotColor={themeColor} />
-            </div>
+        <div className="fixed md:static w-full bg-white border-b border-stroke-gray">
+            <div className="relative flex justify-between items-center p-3 h-20 mx-2">
+                <NavButton icon={<Bars3Icon className={iconClass}/>} title="Menu"
+                           onClick={() => setActiveSidebar((prev) => !prev)}/>
 
-            {popovers.profile && <Profile />}
-            {popovers.notifications && <Notifications />}
+                <div className="flex-1 flex flex-row gap-2 mx-6">
+                    <MagnifyingGlassIcon className="w-[24px] h-[24px] text-gray"/>
+                    <input
+                        type="text"
+                        className="outline-none w-full"
+                        placeholder="Type to search..."
+                    />
+                </div>
+
+                <div className="flex gap-3 items-center">
+                    <NavButton icon={<BellIcon className={iconClass}/>} title="Notifications"
+                               onClick={() => handleSetPopovers('notifications')} dotColor={themeColor}/>
+                    <NavButton icon={<ChatBubbleOvalLeftEllipsisIcon className={iconClass}/>} title="Messages"
+                               onClick={() => handleSetPopovers('messages')} dotColor={themeColor} hasNew={true}/>
+                    <div className="flex items-center ml-5 cursor-pointer gap-3"
+                         onClick={() => handleSetPopovers('profile')}>
+                        <div className="flex flex-col">
+                            <p className="text-sm text-dark-black whitespace-nowrap">{firstName} {lastName}</p>
+                            <p className="text-xs text-gray">{position}</p>
+                        </div>
+                        <img
+                            src={image}
+                            className="object-contain w-12 h-12 rounded-full"
+                            alt="avatar"
+                        />
+                        <ChevronDownIcon className="w-4 h-4 text-dark-gray"/>
+                    </div>
+                </div>
+
+                {popovers.profile && <Profile/>}
+                {popovers.notifications && <Notifications/>}
+                {popovers.messages && <Messages/>}
+            </div>
         </div>
-        
     );
 };
 

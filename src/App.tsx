@@ -35,7 +35,7 @@ function App() {
                 {/*SideBar*/}
                 {activeSidebar
                     ? (
-                        <div className="w-72 fixed bg-amber-200 z-50">
+                        <div className="w-80 fixed bg-dark z-50">
                             <Sidebar/>
                         </div>
                     )
@@ -47,10 +47,9 @@ function App() {
                 }
 
                 {/*Content*/}
-                <div className={`${activeSidebar ? 'md:ml-72' : 'flex-1'} w-full min-h-screen bg-amber-700`}>
-                    <div className="fixed md:static w-full bg-amber-950 text-white">
+                <div className={`${activeSidebar ? 'md:ml-80' : 'flex-1'} w-full min-h-screen bg-white-100`}>
                         <Navbar/>
-                    </div>
+                    {/*</div>*/}
 
                     <div>
 
