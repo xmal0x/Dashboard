@@ -1,4 +1,5 @@
 import React from 'react';
+import {PageWrapper} from "../hoc";
 
 const Messages = () => {
     return (
@@ -8,4 +9,4 @@ const Messages = () => {
     );
 };
 
-export default Messages;
+export default PageWrapper(Messages,'Messages')

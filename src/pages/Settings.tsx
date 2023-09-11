@@ -2,14 +2,12 @@ import React from 'react';
 import {themeColors} from "../constants";
 import {CheckIcon} from "@heroicons/react/24/outline";
 import {useThemeContext} from "../contexts/ThemeContextProvider";
+import {PageWrapper} from "../hoc";
 
 const Settings = () => {
     const {setThemeColor, themeColor} = useThemeContext()
 
     return (
-        <div className="flex flex-col page">
-            <h2 className="page__title">Settings</h2>
-
             <div className="page__content">
                 <h4 className="text-xl mb-4">Theme color</h4>
                 <div className="flex sm:justify-start sm:gap-4 justify-between flex-wrap">
@@ -30,9 +28,7 @@ const Settings = () => {
                     ))}
                 </div>
             </div>
-
-        </div>
     );
 };
 
-export default Settings;
+export default PageWrapper(Settings, 'Settings');

@@ -21,7 +21,7 @@ const Sidebar = () => {
     }, []);
 
     useEffect(() => {
-        if (screenSize <= 900) {
+        if (screenSize <= 1100) {
             setActiveSidebar(false)
         } else {
             setActiveSidebar(true)
@@ -29,13 +29,13 @@ const Sidebar = () => {
     }, [screenSize]);
 
     const handleCloseSidebar = useCallback(() => {
-        if (screenSize <= 900) {
+        if (screenSize <= 1100) {
             setActiveSidebar(false)
         }
     }, [screenSize, setActiveSidebar]);
 
     return (
-        <aside className="h-screen md:p-10 p-6 text-white">
+        <aside className="h-screen lg:p-10 md:p-6 p-4 text-white">
             <div className="flex justify-between items-center">
                 <Link to="/" onClick={handleCloseSidebar}
                       className="flex gap-2 font-medium tracking-tight text-3xl items-center">
@@ -46,7 +46,7 @@ const Sidebar = () => {
                 <button
                     type="button"
                     onClick={() => setActiveSidebar(false)}
-                    className="rounded-full p-0.5 md:hidden block"
+                    className="rounded-full p-0.5 lg:hidden block"
                 >
                     <XMarkIcon className="h-[25px] w-[25px] hover:scale-125 transition duration-300"/>
                 </button>

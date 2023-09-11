@@ -1,4 +1,5 @@
 import React from 'react';
+import {PageWrapper} from "../hoc";
 
 const Inbox = () => {
     return (
@@ -8,4 +9,4 @@ const Inbox = () => {
     );
 };
 
-export default Inbox;
+export default PageWrapper(Inbox, 'Inbox')

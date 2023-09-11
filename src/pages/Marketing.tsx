@@ -1,4 +1,5 @@
 import React from 'react';
+import {PageWrapper} from "../hoc";
 
 const Marketing = () => {
     return (
@@ -8,4 +9,4 @@ const Marketing = () => {
     );
 };
 
-export default Marketing;
+export default PageWrapper(Marketing, 'Marketing')

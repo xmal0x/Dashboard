@@ -1,4 +1,5 @@
 import React from 'react';
+import {PageWrapper} from "../hoc";
 
 const Analytics = () => {
     return (
@@ -8,4 +9,4 @@ const Analytics = () => {
     );
 };
 
-export default Analytics;
+export default PageWrapper(Analytics, 'Analytics')
