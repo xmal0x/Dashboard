@@ -4,7 +4,7 @@ import {themeColors} from "../constants";
 import {CheckIcon} from "@heroicons/react/24/outline";
 import {useThemeContext} from "../contexts/ThemeContextProvider";
 
-const Settings = () => {
+const ThemeSettings = () => {
     const {setActiveThemeSettings} = useMainContext()
     const {themeColor, setThemeColor} = useThemeContext()
 
@@ -42,4 +42,4 @@ const Settings = () => {
     );
 };
 
-export default Settings;
+export default ThemeSettings;

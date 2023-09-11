@@ -8,6 +8,8 @@ interface MainContextType {
     handleSetPopovers: (value: keyof typeof navbarPopoversState) => void
     handleClosePopovers: () => void
     popovers: NavbarPopovers
+    screenSize: number
+    setScreenSize: (value: number) => void
 }
 
 interface NavbarPopovers {
@@ -28,10 +30,12 @@ export const MainContextProvider = ({children}: { children: React.ReactNode }) =
     const [activeSidebar, setActiveSidebar] = useState(true)
     const [activeThemeSettings, setActiveThemeSettings] = useState(false)
     const [popovers, setPopovers] = useState(navbarPopoversState)
+    const [screenSize, setScreenSize] = useState(0)
 
-    const handleSetPopovers = (popover: keyof typeof navbarPopoversState) => {
-        setPopovers({...navbarPopoversState, [popover]: true})
-    }
+    const handleSetPopovers = (popover: keyof typeof navbarPopoversState) => setPopovers({
+        ...navbarPopoversState,
+        [popover]: !popovers[popover]
+    })
 
     const handleClosePopovers = () => setPopovers(navbarPopoversState)
 
@@ -43,7 +47,9 @@ export const MainContextProvider = ({children}: { children: React.ReactNode }) =
             setActiveThemeSettings,
             handleSetPopovers,
             handleClosePopovers,
-            popovers
+            popovers,
+            screenSize,
+            setScreenSize
         }}>
             {children}
         </MainContext.Provider>

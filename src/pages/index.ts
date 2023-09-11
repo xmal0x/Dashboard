@@ -1,7 +1,15 @@
-import Home from "./Home"
-import About from "./About"
+import Analytics from "./Analytics"
+import Marketing from "./Marketing"
+import ECommerce from "./ECommerce";
+import Inbox from "./Inbox";
+import Messages from "./Messages";
+import Settings from "./Settings";
 
 export {
-    Home,
-    About
+    Analytics,
+    Marketing,
+    ECommerce,
+    Settings,
+    Messages,
+    Inbox
 }

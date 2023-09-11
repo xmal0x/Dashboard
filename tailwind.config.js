@@ -12,7 +12,9 @@ module.exports = {
         "light-gray": "#EFF4FB",
         "dark-gray": "#64748B",
         "dark-black": "#212B36",
-        "stroke-gray": "#E2E8F0"
+        "stroke-gray": "#E2E8F0",
+        "positive-green": "#10B981",
+        "negative-orange": "#F0950C"
       }
     },
   },

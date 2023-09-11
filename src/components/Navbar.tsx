@@ -44,7 +44,7 @@ const Navbar = () => {
     const {firstName, lastName, position, image} = useUserContext()
 
     return (
-        <div className="fixed md:static w-full bg-white border-b border-stroke-gray">
+        <nav className="fixed md:static w-full bg-white border-b border-stroke-gray">
             <div className="relative flex justify-between items-center p-3 h-20 mx-2">
                 <NavButton icon={<Bars3Icon className={iconClass}/>} title="Menu"
                            onClick={() => setActiveSidebar((prev) => !prev)}/>
@@ -58,14 +58,14 @@ const Navbar = () => {
                     />
                 </div>
 
-                <div className="flex gap-3 items-center">
+                <div className="flex md:gap-3 gap-2 items-center">
                     <NavButton icon={<BellIcon className={iconClass}/>} title="Notifications"
                                onClick={() => handleSetPopovers('notifications')} dotColor={themeColor}/>
                     <NavButton icon={<ChatBubbleOvalLeftEllipsisIcon className={iconClass}/>} title="Messages"
                                onClick={() => handleSetPopovers('messages')} dotColor={themeColor} hasNew={true}/>
-                    <div className="flex items-center ml-5 cursor-pointer gap-3"
+                    <div className="flex items-center md:ml-5 ml-1 cursor-pointer gap-3"
                          onClick={() => handleSetPopovers('profile')}>
-                        <div className="flex flex-col">
+                        <div className="flex-col md:flex hidden">
                             <p className="text-sm text-dark-black whitespace-nowrap">{firstName} {lastName}</p>
                             <p className="text-xs text-gray">{position}</p>
                         </div>
@@ -82,7 +82,7 @@ const Navbar = () => {
                 {popovers.notifications && <Notifications/>}
                 {popovers.messages && <Messages/>}
             </div>
-        </div>
+        </nav>
     );
 };
 

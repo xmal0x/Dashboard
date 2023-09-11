@@ -2,15 +2,13 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {settings} from "./assets";
-import {About, Home} from "./pages";
+import {Analytics, ECommerce, Inbox, Marketing, Messages, Settings} from "./pages";
 import {useMainContext} from "./contexts/MainContextProvider";
-import {Navbar, Settings, Sidebar} from "./components";
+import {Navbar, Sidebar, ThemeSettings} from "./components";
 import {useThemeContext} from "./contexts/ThemeContextProvider";
 
 
 function App() {
-    // const activeSideBar = true
-
     const {activeSidebar, activeThemeSettings, setActiveThemeSettings} = useMainContext()
     const {themeColor} = useThemeContext()
 
@@ -48,17 +46,19 @@ function App() {
 
                 {/*Content*/}
                 <div className={`${activeSidebar ? 'md:ml-80' : 'flex-1'} w-full min-h-screen bg-white-100`}>
-                        <Navbar/>
-                    {/*</div>*/}
+                    <Navbar/>
 
-                    <div>
-
-                        {activeThemeSettings && <Settings/>}
+                    <div className="md:mt-0 mt-20">
+                        {activeThemeSettings && <ThemeSettings/>}
 
                         <Routes>
-                            <Route path="/" element={<Home/>}/>
-                            <Route path="/home" element={<Home/>}/>
-                            <Route path="/about" element={<About/>}/>
+                            <Route path="/" element={<ECommerce/>}/>
+                            <Route path="/ecommerce" element={<ECommerce/>}/>
+                            <Route path="/analytics" element={<Analytics/>}/>
+                            <Route path="/marketing" element={<Marketing/>}/>
+                            <Route path="/settings" element={<Settings/>}/>
+                            <Route path="/messages" element={<Messages/>}/>
+                            <Route path="/inbox" element={<Inbox/>}/>
                         </Routes>
                     </div>
                 </div>

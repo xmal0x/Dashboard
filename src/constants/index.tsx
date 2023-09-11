@@ -49,26 +49,32 @@ export const sideBarItems = [
 
 export const themeColors = [
     {
+        id: 1,
         name: 'blue-theme',
         color: '#1A97F5',
     },
     {
+        id: 2,
         name: 'green-theme',
         color: '#03C9D7',
     },
     {
+        id: 3,
         name: 'purple-theme',
         color: '#7352FF',
     },
     {
+        id: 4,
         name: 'red-theme',
         color: '#FF5C8E',
     },
     {
+        id: 5,
         name: 'indigo-theme',
         color: '#1E4DB7',
     },
     {
+        id: 6,
         name: 'orange-theme',
         color: '#FB9678',
     },
@@ -101,3 +107,36 @@ export const messages: Message[] = [
         date: '28 Feb, 2025'
     }
 ]
+
+export const eCommerceData = {
+    summaryData: [
+        {
+            id: 1,
+            title: 'Unique Visitors',
+            value: '18.6K',
+            direction: 'up',
+            diff: '18%'
+        },
+        {
+            id: 2,
+            title: 'Total Pageviews',
+            value: '55.9K',
+            direction: 'up',
+            diff: '25%'
+        },
+        {
+            id: 3,
+            title: 'Bounce Rate',
+            value: '54%',
+            direction: 'down',
+            diff: '7%'
+        },
+        {
+            id: 4,
+            title: 'Visit Duration',
+            value: '2m 56s',
+            direction: 'up',
+            diff: '12%'
+        }
+    ]
+}

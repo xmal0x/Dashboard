@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Analytics = () => {
+const Messages = () => {
     return (
         <div>
-            Analytics
+            Messages
         </div>
     );
 };
 
-export default Analytics;
+export default Messages;
