@@ -5,6 +5,7 @@ import {messages} from "../constants";
 import {menAvatar} from "../assets";
 import {useThemeContext} from "../contexts/ThemeContextProvider";
 import {Message} from "../types";
+import {useNavigate} from "react-router-dom";
 
 interface MessagePreviewProps {
     message: Message
@@ -32,6 +33,12 @@ const MessagePreview = ({message, isNew = false}: MessagePreviewProps ) => {
 
 const Messages = () => {
     const {handleClosePopovers} = useMainContext()
+    const navigate = useNavigate()
+
+    const handleGoToMessage = () => {
+        navigate('/messages')
+        handleClosePopovers()
+    }
 
     return (
         <Popover title="Messages" handleClose={handleClosePopovers}>
@@ -40,8 +47,7 @@ const Messages = () => {
                     <MessagePreview key={message.from} message={message} isNew={true}/>
                 ))}
                 <div className="p-3 flex flex-col">
-                    <Button text="Go to messages" type="primary" onClick={() => {
-                    }}/>
+                    <Button text="Go to messages" type="primary" onClick={handleGoToMessage}/>
                 </div>
             </>
         </Popover>

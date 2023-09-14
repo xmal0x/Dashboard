@@ -7,6 +7,7 @@ interface User {
     position: string
     email: string
     image: string
+    id: number
 }
 
 interface UserContext {
@@ -15,6 +16,7 @@ interface UserContext {
     position: string
     email: string
     image: string
+    id: number
 }
 
 const UserContext = createContext<UserContext | null>(null)
@@ -25,7 +27,8 @@ export const UserContextProvider = ({children}: { children: React.ReactNode }) =
         lastName: 'Doe',
         position: 'Designer',
         email: 'janedoe@mail.com',
-        image: avatar
+        image: avatar,
+        id: 100
     }
 
     return (

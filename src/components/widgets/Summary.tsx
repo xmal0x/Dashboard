@@ -8,7 +8,7 @@ interface SummaryProps {
 
 const Summary = ({data}: SummaryProps) => {
     return (
-        <div className="flex justify-between xl:flex-nowrap flex-wrap gap-4">
+        <div className="flex justify-between items-center xl:flex-nowrap flex-wrap gap-4">
             {data.map((item, index) => (
                 <div className={`flex-1 md:p-4 p-2 ${index !== data.length-1 && 'lg:border-r lg:border-stroke-gray'}`} key={item.id}>
                     <div className="flex items-center">

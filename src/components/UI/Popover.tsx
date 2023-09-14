@@ -11,7 +11,7 @@ interface PopoverProps {
 
 const Popover = ({children, title, handleClose}: PopoverProps) => {
     return (
-        <div className="absolute top-24 right-2 w-72 border border-stroke-gray bg-white rounded-sm">
+        <div className="absolute top-24 right-2 w-72 border border-stroke-gray bg-white rounded-sm z-50">
             <div className="flex justify-between p-4 items-center">
                 <p className="text-dark-black text-base">{title}</p>
                 <button

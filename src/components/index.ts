@@ -7,6 +7,7 @@ import Messages from "./Messages"
 
 import Popover from "./UI/Popover"
 import Button from "./UI/Button"
+import ProLabel from "./UI/ProLabel"
 
 export {
     Navbar,
@@ -16,5 +17,6 @@ export {
     Profile,
     Popover,
     Button,
-    Messages
+    Messages,
+    ProLabel
 }

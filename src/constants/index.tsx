@@ -10,14 +10,22 @@ export const sideBarItems = [
             {
                 title: 'eCommerce',
                 link: 'ecommerce',
+                enabled: true
+            },
+            {
+                title: 'Customers',
+                link: 'customers',
+                enabled: false
             },
             {
                 title: 'Analytics',
                 link: 'analytics',
+                enabled: false
             },
             {
                 title: 'Marketing',
                 link: 'marketing',
+                enabled: false
             }
         ]
     },
@@ -28,6 +36,7 @@ export const sideBarItems = [
             {
                 title: 'Settings',
                 link: 'settings',
+                enabled: true
             },
         ]
     },
@@ -38,10 +47,12 @@ export const sideBarItems = [
             {
                 title: 'Messages',
                 link: 'messages',
+                enabled: true
             },
             {
                 title: 'Inbox',
                 link: 'inbox',
+                enabled: false
             },
         ]
     },
@@ -109,7 +120,7 @@ export const messages: Message[] = [
 ]
 
 export const eCommerceData = {
-    summaryData: [
+    summary: [
         {
             id: 1,
             title: 'Unique Visitors',
@@ -138,5 +149,201 @@ export const eCommerceData = {
             direction: 'up',
             diff: '12%'
         }
-    ]
+    ],
+    visitorsAnalytics: {
+        series: [{
+            name: 'Visitors',
+            data: [200, 150, 180, 260, 290, 250]
+        }],
+        xaxis: {
+            categories: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            position: 'bottom',
+        },
+        colors: ['']
+    },
+    topCountries: {
+        series: [{
+            data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+        }],
+        plotOptions: {
+            bar: {
+                borderRadius: 4,
+                horizontal: true,
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        xaxis: {
+            categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
+                'United States', 'China', 'Germany'
+            ],
+        }
+    },
+    dayTimeAnalytics: {
+        series: [
+            {
+                name: "Day",
+                data: [28, 29, 33, 36, 32, 32, 33]
+            },
+            {
+                name: "Night",
+                data: [12, 11, 14, 18, 17, 13, 13]
+            }
+        ],
+        chart: {
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        grid: {
+            row: {
+                colors: ['#f3f3f3', 'transparent'],
+                opacity: 0.5
+            },
+        },
+        xaxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+        }
+    },
+    deviceAnalytics: {
+        series: [38, 24, 18, 20],
+        labels: ["Desktop", "Mobile", "Tablet", "Unknown"],
+        plotOptions: {
+            pie: {
+                startAngle: -90,
+                endAngle: 270
+            }
+        },
+        fill: {
+            type: 'gradient',
+        },
+        legend: {
+            formatter: function (val: string, opts: any) {
+                return val + " - " + opts.w.globals.series[opts.seriesIndex] + '%'
+            },
+            position: 'bottom' as 'bottom'
+        },
+    },
+    summaryVisitorsCount: {
+        series: [{
+            name: "Visitors",
+            data: [123, 113, 159, 188, 201, 227, 212, 244, 229, 254, 267, 272]
+        }],
+        chart: {
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'straight' as 'straight'
+        },
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        xaxis: {
+            type: 'category' as 'category',
+        },
+        yaxis: {
+            opposite: true
+        },
+        legend: {
+            horizontalAlign: 'left' as 'left'
+        }
+    },
+    actualExpected: {
+        series: [
+            {
+                name: 'Actual',
+                data: [
+                    {
+                        x: 'Jul',
+                        y: 1292,
+                        goals: [
+                            {
+                                name: 'Expected',
+                                value: 1400,
+                                strokeHeight: 5,
+                                strokeColor: '#00E396'
+                            }
+                        ]
+                    },
+                    {
+                        x: 'Aug',
+                        y: 4432,
+                        goals: [
+                            {
+                                name: 'Expected',
+                                value: 5400,
+                                strokeHeight: 5,
+                                strokeColor: '#00E396'
+                            }
+                        ]
+                    },
+                    {
+                        x: 'Sep',
+                        y: 5423,
+                        goals: [
+                            {
+                                name: 'Expected',
+                                value: 5200,
+                                strokeHeight: 5,
+                                strokeColor: '#00E396'
+                            }
+                        ]
+                    },
+                    {
+                        x: 'Oct',
+                        y: 6653,
+                        goals: [
+                            {
+                                name: 'Expected',
+                                value: 6500,
+                                strokeHeight: 5,
+                                strokeColor: '#00E396'
+                            }
+                        ]
+                    },
+                    {
+                        x: 'Nov',
+                        y: 8133,
+                        goals: [
+                            {
+                                name: 'Expected',
+                                value: 6600,
+                                strokeHeight: 13,
+                                strokeWidth: 0,
+                                strokeLineCap: 'round',
+                                strokeColor: '#00E396'
+                            }
+                        ]
+                    },
+                    {
+                        x: 'Dec',
+                        y: 7132,
+                        goals: [
+                            {
+                                name: 'Expected',
+                                value: 7500,
+                                strokeHeight: 5,
+                                strokeColor: '#00E396'
+                            }
+                        ]
+                    },
+                ]
+            }
+        ],
+        plotOptions: {
+            bar: {
+                columnWidth: '60%'
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+    }
 }

@@ -44,7 +44,7 @@ const Navbar = () => {
     const {firstName, lastName, position, image} = useUserContext()
 
     return (
-        <nav className="fixed md:static w-full bg-white border-b border-stroke-gray">
+        <nav className="fixed md:static w-full bg-white border-b border-stroke-gray z-30">
             <div className="relative flex justify-between items-center p-3 h-20 mx-2">
                 <NavButton icon={<Bars3Icon className={iconClass}/>} title="Menu"
                            onClick={() => setActiveSidebar((prev) => !prev)}/>
