@@ -43,7 +43,7 @@ export const UserContextProvider = ({children}: { children: React.ReactNode }) =
 export const useUserContext = () => {
     const userContext = useContext(UserContext)
 
-    if(!userContext) {
+    if (!userContext) {
         throw new Error(
             "UserContext has to be used within <UserContext.Provider>"
         );

@@ -8,7 +8,7 @@ const Settings = () => {
     const {setThemeColor, themeColor} = useThemeContext()
 
     return (
-            <div className="page__content">
+            <div className="page__content p-4">
                 <h4 className="text-xl mb-4">Theme color</h4>
                 <div className="flex sm:justify-start sm:gap-4 justify-between flex-wrap">
                     {themeColors.map(item => (
