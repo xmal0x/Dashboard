@@ -21,11 +21,12 @@ dynamic user experience.
 ![img_1.png](img_1.png)
 
 **Mobile chat/eCommerce/menu**
-<div style="display: flex;">
+<div style="display: flex; justify-content: space-between;">
 <img src="img_2.png" alt="chat" width="200" style="margin: 6px"/>
 <img src="img_3.png" alt="ecommerce" width="200" style="margin: 6px"/>
 <img src="img_4.png" alt="menu" width="200" style="margin: 6px"/>
 </div>
+
 ## Features
 
 1. **eCommerce Demo Page**
