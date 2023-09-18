@@ -3,7 +3,7 @@ import {Button, Popover} from "./";
 import {useNavigate} from "react-router-dom";
 import {NavPopupProps} from "../types";
 
-const Profile = ({onClose}: NavPopupProps) => {
+const Profile = ({onClose, show}: NavPopupProps) => {
     const {firstName, lastName, image, email, position} = useUserContext()
     const navigate = useNavigate()
 
@@ -13,7 +13,7 @@ const Profile = ({onClose}: NavPopupProps) => {
     }
 
     return (
-        <Popover title="Profile" handleClose={onClose}>
+        <Popover show={show} title="Profile" handleClose={onClose}>
             <div className="flex flex-col gap-2 p-4">
                 <div className="flex-center">
                     <img src={image} alt="avatar" className="w-12 h-12 rounded-full"/>

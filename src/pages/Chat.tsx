@@ -33,7 +33,7 @@ const Chat = () => {
 
     return (
         <div className="page__content flex h-[75vh]">
-            <div className="flex flex-col md:min-w-[24rem] border-r border-stroke-gray">
+            <div className="flex flex-col lg:min-w-[24rem] md:min-w-[12rem] border-r border-stroke-gray">
                 <ChatList chats={chats} setChats={setChats} onSetActiveChat={handleSelectChat}/>
             </div>
 

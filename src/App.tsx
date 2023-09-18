@@ -15,11 +15,13 @@ function App() {
                 {/*SideBar*/}
                 {activeSidebar
                     ? (
+
                         <div className="w-80 fixed bg-dark z-50">
                             <Sidebar/>
                         </div>
                     )
                     : (
+
                         <div className="w-0">
                             <Sidebar/>
                         </div>

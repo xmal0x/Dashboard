@@ -54,6 +54,7 @@ export interface PopoverProps {
     children: React.ReactNode
     title: string
     handleClose: () => void
+    show: boolean
 }
 
 export interface ChartProps {
@@ -79,6 +80,7 @@ export interface NavProfileProps {
 
 export interface NavPopupProps {
     onClose: () => void
+    show: boolean
 }
 
 export interface SidebarChapterProps {

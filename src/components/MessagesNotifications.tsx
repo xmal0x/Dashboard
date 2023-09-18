@@ -3,7 +3,7 @@ import {messages, users} from "../constants";
 import {useNavigate} from "react-router-dom";
 import {NavPopupProps} from "../types";
 
-const MessagesNotifications = ({onClose}: NavPopupProps) => {
+const MessagesNotifications = ({onClose, show}: NavPopupProps) => {
     const navigate = useNavigate()
 
     const handleGoToMessage = () => {
@@ -12,7 +12,7 @@ const MessagesNotifications = ({onClose}: NavPopupProps) => {
     }
 
     return (
-        <Popover title="Messages" handleClose={onClose}>
+        <Popover title="Messages" handleClose={onClose} show={show}>
             {messages.map(message => (
                 <MessagePreview key={message.message + '-' + message.dateTime}
                                 sender={users.find(u => u.id === message.senderId)} message={message} isNew={true}/>

@@ -3,9 +3,9 @@ import {Popover} from "./index";
 import {notifications} from "../constants";
 import {NavPopupProps} from "../types";
 
-const Notifications = ({onClose}: NavPopupProps) => {
+const Notifications = ({onClose, show}: NavPopupProps) => {
     return (
-        <Popover title="Notifications" handleClose={onClose}>
+        <Popover title="Notifications" handleClose={onClose} show={show}>
             {notifications.map(({id, text, date}) => (
                 <div
                     key={id}

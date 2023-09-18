@@ -3,6 +3,7 @@ import {useMainContext} from "../contexts/MainContextProvider";
 import {useThemeContext} from "../contexts/ThemeContextProvider";
 import {useUserContext} from "../contexts/UserContextProvider";
 import {MessagesNotification, NavButton, NavProfile, Notifications, Profile} from "./index";
+import popover from "./UI/Popover";
 
 
 const Navbar = () => {
@@ -42,9 +43,10 @@ const Navbar = () => {
                                 position={position} image={image}/>
                 </div>
 
-                {popovers.profile && <Profile onClose={handleClosePopovers}/>}
-                {popovers.notifications && <Notifications onClose={handleClosePopovers}/>}
-                {popovers.messages && <MessagesNotification onClose={handleClosePopovers}/>}
+
+                <Profile onClose={handleClosePopovers} show={popovers.profile}/>
+                <Notifications onClose={handleClosePopovers} show={popovers.notifications}/>
+                <MessagesNotification onClose={handleClosePopovers} show={popovers.messages}/>
             </div>
         </nav>
     );

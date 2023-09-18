@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# Dashboard Interface
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies
 
-## Available Scripts
+- React
+- Tailwind CSS
+- ApexCharts
+- TypeScript
 
-In the project directory, you can run:
+## Overview
 
-### `yarn start`
+This project is a versatile dashboard interface that uses React, Tailwind CSS, ApexCharts, and TypeScript to provide a dynamic user experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Images
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**eCommerce**
+![img.png](img.png)
 
-### `yarn test`
+**Chat**
+![img_1.png](img_1.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Mobile chat/eCommerce/menu** 
 
-### `yarn build`
+<img src="img_2.png" alt="chat" width="200" style="margin: 6px"/>
+<img src="img_3.png" alt="ecommerce" width="200" style="margin: 6px"/>
+<img src="img_4.png" alt="menu" width="200" style="margin: 6px"/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **eCommerce Demo Page**
+    - Visualizes eCommerce data with interactive ApexCharts.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Settings Page**
+    - Allows users to customize the color theme.
 
-### `yarn eject`
+3. **Chat Page**
+    - Chat with message search.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. **Pop-ups**
+    - Notifications, messages, and user profile pop-ups.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Responsive Design
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The dashboard is fully responsive, adapting seamlessly to desktops, mobile devices, and tablets.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+1. Clone the repository.
+2. Install dependencies with `npm install` or `yarn install`.
+3. Start the development server with `npm start` or `yarn start`.
+4. Access the dashboard at `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributions
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributions are welcome. Fork the repository and submit pull requests to enhance the project.
