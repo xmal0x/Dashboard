@@ -8,16 +8,9 @@ import {
 } from "@heroicons/react/24/outline";
 import {useMainContext} from "../contexts/MainContextProvider";
 import {useThemeContext} from "../contexts/ThemeContextProvider";
-import {Messages, Notifications, Profile} from "./index";
+import {MessagesNotification, Notifications, Profile} from "./index";
 import {useUserContext} from "../contexts/UserContextProvider";
-
-interface NavButtonProps {
-    icon: React.ReactNode
-    title: string
-    dotColor?: string
-    onClick: () => void
-    hasNew?: boolean
-}
+import {NavButtonProps} from "../types";
 
 const NavButton = ({icon, onClick, title, dotColor, hasNew = false}: NavButtonProps) => {
     return (
@@ -80,7 +73,7 @@ const Navbar = () => {
 
                 {popovers.profile && <Profile/>}
                 {popovers.notifications && <Notifications/>}
-                {popovers.messages && <Messages/>}
+                {popovers.messages && <MessagesNotification/>}
             </div>
         </nav>
     );

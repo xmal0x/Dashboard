@@ -6,8 +6,6 @@ import {notifications} from "../constants";
 const Notifications = () => {
     const {handleClosePopovers} = useMainContext()
 
-    //showLastLine()
-
     return (
         <Popover title="Notifications" handleClose={handleClosePopovers}>
             {notifications.map((item, index) => (

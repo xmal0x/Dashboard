@@ -1,5 +1,6 @@
 import {ChatBubbleLeftEllipsisIcon, Squares2X2Icon, UserIcon} from "@heroicons/react/24/outline";
-import {Message} from "../types";
+import {ChatData, Message, User} from "../types";
+import {avatar1, avatar2, avatar3, avatar4, avatar5, avatar6} from "../assets";
 
 
 export const sideBarItems = [
@@ -45,8 +46,8 @@ export const sideBarItems = [
         icon: <ChatBubbleLeftEllipsisIcon/>,
         links: [
             {
-                title: 'Messages',
-                link: 'messages',
+                title: 'Chat',
+                link: 'chat',
                 enabled: true
             },
             {
@@ -108,14 +109,14 @@ export const notifications = [
 
 export const messages: Message[] = [
     {
-        from: 'John Willis',
+        senderId: 2,
         message: 'Hi this is John! How are you? Can you answer me about your plans?',
-        date: '11 May, 2025'
+        dateTime: new Date()
     },
     {
-        from: 'Bruce Holland',
+        senderId: 5,
         message: 'I\'m waiting for confirmation from you regarding the latest transaction.',
-        date: '28 Feb, 2025'
+        dateTime: new Date()
     }
 ]
 
@@ -347,3 +348,173 @@ export const eCommerceData = {
         },
     }
 }
+
+export const users: User[] = [
+    {
+        name: 'Henry Dholi',
+        id: 1,
+        avatar: avatar6,
+        online: false,
+    },
+    {
+        name: 'Mariya Desoja',
+        id: 2,
+        avatar: avatar1,
+        online: true,
+    },
+    {
+        name: 'Robert Jhon',
+        id: 3,
+        avatar: avatar5,
+        online: false,
+    },
+    {
+        name: 'Cody Fisher',
+        id: 4,
+        avatar: avatar2,
+        online: true,
+    },
+    {
+        name: 'Cristofer Donin',
+        id: 5,
+        avatar: avatar4,
+        online: true,
+    },
+    {
+        name: 'Marcus Siphron',
+        id: 6,
+        avatar: avatar3,
+        online: false,
+    },
+]
+
+export const chatData: ChatData[] = [
+    {
+        id: 1,
+        user: users[0],
+        messages: [
+            {
+                senderId: 100,
+                message: 'So, if this isn\'t real, what is it?',
+                dateTime: new Date()
+            },
+            {
+                senderId: 1,
+                message: 'If you\'re talking about what you can feel, what you can smell, what you can taste and see, then \'real\' is simply electrical signals interpreted by your brain.',
+                dateTime: new Date()
+            },
+            {senderId: 1, message: 'What is real? How do you define \'real\'?', dateTime: new Date()},
+            {senderId: 100, message: 'Can you tell me if this is the real world?', dateTime: new Date()},
+        ]
+    },
+    {
+        id: 2,
+        user: users[1],
+        messages: [
+            {
+                senderId: 100,
+                message: 'Oh, you\'re sure to do that if only you walk long enough.',
+                dateTime: new Date()
+            },
+            {
+                senderId: 2,
+                message: 'As long as I get somewhere.',
+                dateTime: new Date()
+            },
+            {senderId: 100, message: 'Then it doesn\'t matter which way you go.', dateTime: new Date()},
+            {senderId: 2, message: 'But I don\'t know where I want to go.', dateTime: new Date()},
+            {senderId: 100, message: 'The place you\'re going to depends on the path you take.', dateTime: new Date()},
+        ]
+
+    },
+    {
+        id: 3,
+        user: users[2],
+        messages: [
+            {
+                senderId: 3,
+                message: 'What?',
+                dateTime: new Date()
+            },
+            {
+                senderId: 100,
+                message: 'What ain\'t no country I ever heard of! They speak English in \'What\'?',
+                dateTime: new Date()
+            },
+            {
+                senderId: 3,
+                message: 'What?',
+                dateTime: new Date()
+            },
+            {senderId: 100, message: 'What country are you from?', dateTime: new Date()},
+            {
+                senderId: 3,
+                message: 'What?',
+                dateTime: new Date()
+            },
+            {senderId: 100, message: 'What does Marsellus Wallace look like?', dateTime: new Date()},
+        ]
+    },
+    {
+        id: 4,
+        user: users[3],
+        messages: [
+            {senderId: 100, message: 'From the future.', dateTime: new Date()},
+            {senderId: 4, message: 'Protect me from what?', dateTime: new Date()},
+            {senderId: 100, message: 'To protect you.', dateTime: new Date()},
+            {
+                senderId: 4,
+                message: 'What mission?',
+                dateTime: new Date()
+            },
+            {
+                senderId: 100,
+                message: 'I\'m the Terminator. I\'ve been sent back on a mission.',
+                dateTime: new Date()
+            },
+            {senderId: 4, message: 'Who are you?', dateTime: new Date()},
+        ]
+    },
+    {
+        id: 5,
+        user: users[4],
+        messages: [
+            {senderId: 5, message: 'No, I\'m what you want to be. I\'m free.', dateTime: new Date()},
+            {
+                senderId: 100,
+                message: 'Because you\'re me.',
+                dateTime: new Date()
+            },
+            {
+                senderId: 5,
+                message: 'Why?',
+                dateTime: new Date()
+            },
+            {senderId: 100, message: 'I can\'t hit you, Tyler.', dateTime: new Date()},
+            {senderId: 5, message: 'Go ahead, hit me as hard as you can.', dateTime: new Date()},
+        ]
+    },
+    {
+        id: 6,
+        user: users[5],
+        messages: [
+            {
+                senderId: 6,
+                message: 'Well, Dale, you\'ve certainly got a way with words',
+                dateTime: new Date()
+            },
+            {
+                senderId: 100,
+                message: 'but I have a definite feeling it will be a place both wonderful and strange',
+                dateTime: new Date()
+            },
+            {senderId: 100, message: 'I have no idea where this will lead us', dateTime: new Date()},
+            {senderId: 6, message: 'Yeah, Dale, and this town is the strangest one of all', dateTime: new Date()},
+            {
+                senderId: 100,
+                message: 'Small towns are the real storybook of our country',
+                dateTime: new Date()
+            },
+        ]
+    },
+]

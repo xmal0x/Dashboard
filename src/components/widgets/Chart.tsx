@@ -1,14 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts'
-
-interface ChartProps {
-    title: string
-    type: "area" | "line" | "bar" | "pie" | "donut" | "radialBar" | "scatter" | "bubble" | "heatmap" | "candlestick" | "boxPlot" | "radar" | "polarArea" | "rangeBar" | "rangeArea" | "treemap" | undefined
-    height: number
-    options: ApexCharts.ApexOptions
-    series: ApexAxisChartSeries | ApexNonAxisChartSeries | undefined
-    colors: string[]
-}
+import {ChartProps} from "../../types";
 
 const Chart = ({title, type, height, options, series, colors}: ChartProps) => {
     options.colors = colors

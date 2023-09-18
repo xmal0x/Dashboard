@@ -4,7 +4,6 @@ import {useMainContext} from "../contexts/MainContextProvider";
 import {Button, Popover} from "./";
 import {useNavigate} from "react-router-dom";
 
-
 const Profile = () => {
     const {firstName, lastName, image, email, position} = useUserContext()
     const {handleClosePopovers} = useMainContext()

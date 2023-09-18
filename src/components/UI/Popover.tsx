@@ -1,13 +1,6 @@
 import React from "react";
 import {XMarkIcon} from "@heroicons/react/24/outline";
-
-interface PopoverProps {
-    children: React.ReactNode
-    title: string
-    handleClose: () => void
-}
-
-
+import {PopoverProps} from "../../types";
 
 const Popover = ({children, title, handleClose}: PopoverProps) => {
     return (

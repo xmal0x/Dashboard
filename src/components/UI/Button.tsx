@@ -1,11 +1,6 @@
 import {useThemeContext} from "../../contexts/ThemeContextProvider";
 import React from "react";
-
-interface ButtonProps {
-    text: string
-    type: 'primary' | 'secondary'
-    onClick: () => void
-}
+import {ButtonProps} from "../../types";
 
 const Button = ({text, type, onClick}: ButtonProps) => {
     const {themeColor} = useThemeContext()
