@@ -9,7 +9,8 @@
 
 ## Overview
 
-This project is a versatile dashboard interface that uses React, Tailwind CSS, ApexCharts, and TypeScript to provide a dynamic user experience.
+This project is a versatile dashboard interface that uses React, Tailwind CSS, ApexCharts, and TypeScript to provide a
+dynamic user experience.
 
 ## Images
 
@@ -19,12 +20,12 @@ This project is a versatile dashboard interface that uses React, Tailwind CSS, A
 **Chat**
 ![img_1.png](img_1.png)
 
-**Mobile chat/eCommerce/menu** 
-
+**Mobile chat/eCommerce/menu**
+<div style="display: flex;">
 <img src="img_2.png" alt="chat" width="200" style="margin: 6px"/>
 <img src="img_3.png" alt="ecommerce" width="200" style="margin: 6px"/>
 <img src="img_4.png" alt="menu" width="200" style="margin: 6px"/>
-
+</div>
 ## Features
 
 1. **eCommerce Demo Page**
