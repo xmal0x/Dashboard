@@ -1,15 +1,6 @@
 import React, {createContext, useContext} from "react";
 import {avatar} from "../assets";
 
-interface User {
-    firstName: string
-    lastName: string
-    position: string
-    email: string
-    image: string
-    id: number
-}
-
 interface UserContext {
     firstName: string
     lastName: string
@@ -19,7 +10,8 @@ interface UserContext {
     id: number
 }
 
-const UserContext = createContext<UserContext | null>(null)
+const UserCtx = createContext<UserContext | null>(null)
+
 
 export const UserContextProvider = ({children}: { children: React.ReactNode }) => {
     const user = {
@@ -32,16 +24,16 @@ export const UserContextProvider = ({children}: { children: React.ReactNode }) =
     }
 
     return (
-        <UserContext.Provider value={{
+        <UserCtx.Provider value={{
             ...user
         }}>
             {children}
-        </UserContext.Provider>
+        </UserCtx.Provider>
     )
 }
 
 export const useUserContext = () => {
-    const userContext = useContext(UserContext)
+    const userContext = useContext(UserCtx)
 
     if (!userContext) {
         throw new Error(

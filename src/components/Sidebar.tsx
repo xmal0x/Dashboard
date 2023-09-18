@@ -19,7 +19,7 @@ const Sidebar = () => {
         handleResize()
 
         return () => window.removeEventListener('resize', handleResize)
-    }, []);
+    }, [setScreenSize]);
 
     useEffect(() => {
         if (screenSize <= 1300) {
@@ -27,7 +27,7 @@ const Sidebar = () => {
         } else {
             setActiveSidebar(true)
         }
-    }, [screenSize]);
+    }, [screenSize, setActiveSidebar]);
 
     const handleCloseSidebar = useCallback(() => {
         if (screenSize <= 1300) {

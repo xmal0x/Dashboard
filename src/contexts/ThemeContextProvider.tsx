@@ -1,27 +1,27 @@
-import React, {createContext, useContext, useState} from "react";
+import React, {createContext, useContext, useEffect, useState} from "react";
 
 interface ThemeContext {
     themeColor: string
     setThemeColor: (color: string | ((prev: string) => string)) => void
 }
 
-const ThemeContext = createContext<ThemeContext | null>(null)
+const ThemeCtx = createContext<ThemeContext | null>(null)
 
 export const ThemeContextProvider = ({children}: {children: React.ReactNode}) => {
     const [themeColor, setThemeColor] = useState('#1A97F5')
 
     return (
-        <ThemeContext.Provider value={{
+        <ThemeCtx.Provider value={{
             themeColor,
             setThemeColor
         }}>
             {children}
-        </ThemeContext.Provider>
+        </ThemeCtx.Provider>
     )
 }
 
 export const useThemeContext = () => {
-    const themeContext = useContext(ThemeContext)
+    const themeContext = useContext(ThemeCtx)
 
     if(!themeContext) {
         throw new Error(

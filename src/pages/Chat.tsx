@@ -147,7 +147,7 @@ const Chat = () => {
                                     onChange={(e) => setFormData({message: e.target.value})}
                                 />
                                 <button disabled={!activeChat || !formData.message} type="submit"
-                                        className={`flex items-center gap-2 p-2 rounded-md ${!activeChat || !formData.message && 'opacity-50'}`}
+                                        className={`flex items-center gap-2 p-2 rounded-md ${(!activeChat || !formData.message) && 'opacity-50'}`}
                                         style={{backgroundColor: themeColor}}>
                                     <PaperAirplaneIcon
                                         className="w-5 h-5 object-contain text-white"/></button>

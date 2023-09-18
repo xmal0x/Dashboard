@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useState} from "react";
 
-interface MainContextType {
+interface MainContext {
     activeSidebar: boolean
     setActiveSidebar: (value: boolean | ((prevState: boolean) => boolean)) => void
     activeThemeSettings: boolean
@@ -24,7 +24,7 @@ const navbarPopoversState: NavbarPopovers = {
     messages: false
 }
 
-const MainContext = createContext<MainContextType | null>(null)
+const MainCtx = createContext<MainContext | null>(null)
 
 export const MainContextProvider = ({children}: { children: React.ReactNode }) => {
     const [activeSidebar, setActiveSidebar] = useState(true)
@@ -40,7 +40,7 @@ export const MainContextProvider = ({children}: { children: React.ReactNode }) =
     const handleClosePopovers = () => setPopovers(navbarPopoversState)
 
     return (
-        <MainContext.Provider value={{
+        <MainCtx.Provider value={{
             activeSidebar,
             setActiveSidebar,
             activeThemeSettings,
@@ -52,12 +52,12 @@ export const MainContextProvider = ({children}: { children: React.ReactNode }) =
             setScreenSize
         }}>
             {children}
-        </MainContext.Provider>
+        </MainCtx.Provider>
     )
 }
 
 export const useMainContext = () => {
-    const mainContext = useContext<MainContextType | null>(MainContext)
+    const mainContext = useContext<MainContext | null>(MainCtx)
 
     if (!mainContext) {
         throw new Error(
