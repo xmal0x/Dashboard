@@ -60,7 +60,7 @@ const ECommerce = () => {
                     height={250}
                     options={actualExpected}
                     series={actualExpected.series}
-                    colors={[themeColor]} />
+                    colors={[themeColor]}/>
             </div>
             <div className="page__content p-4 col-span-2">
                 <Chart

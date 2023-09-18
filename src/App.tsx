@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {Analytics, Chat, ECommerce, Inbox, Marketing, Settings} from "./pages";
+import {Chat, ECommerce, Settings} from "./pages";
 import {useMainContext} from "./contexts/MainContextProvider";
 import {Navbar, Sidebar} from "./components";
 
@@ -35,11 +35,8 @@ function App() {
                         <Routes>
                             <Route path="/" element={<ECommerce/>}/>
                             <Route path="/ecommerce" element={<ECommerce/>}/>
-                            <Route path="/analytics" element={<Analytics/>}/>
-                            <Route path="/marketing" element={<Marketing/>}/>
                             <Route path="/settings" element={<Settings/>}/>
                             <Route path="/chat" element={<Chat/>}/>
-                            <Route path="/inbox" element={<Inbox/>}/>
                         </Routes>
                     </div>
                 </div>
@@ -49,4 +46,4 @@ function App() {
     );
 }
 
-export default App;
+export default App

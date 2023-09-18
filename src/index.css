@@ -22,3 +22,15 @@ body {
 .page__content {
   @apply bg-white border border-stroke-gray shadow-sm
 }
+
+.flex-between-center {
+  @apply flex justify-between items-center
+}
+
+.flex-center {
+  @apply flex items-center
+}
+
+.flex-between {
+  @apply flex justify-between
+}

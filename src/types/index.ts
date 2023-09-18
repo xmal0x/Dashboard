@@ -1,14 +1,16 @@
 import React from "react";
 
+export type Direction = 'up' | 'down'
+
 export interface SummaryData {
     id: number
     title: string
     value: string
-    direction: string
+    direction: Direction
     diff: string
 }
 
-export interface Message {
+export interface MessageData {
     senderId: number,
     message: string,
     dateTime: Date
@@ -24,11 +26,11 @@ export interface User {
 export interface ChatData {
     id: number
     user: User
-    messages: Message[]
+    messages: MessageData[]
 }
 
 export interface MessagePreviewProps {
-    message: Message
+    message: MessageData
     sender?: User
     isNew?: boolean
 }
@@ -43,7 +45,7 @@ export interface NavButtonProps {
 
 export interface ButtonProps {
     text: string
-    type: 'primary' | 'secondary'
+    btnType: 'primary' | 'secondary'
     onClick: () => void
 }
 
@@ -65,4 +67,54 @@ export interface ChartProps {
 
 export interface SummaryProps {
     data: SummaryData[]
+}
+
+export interface NavProfileProps {
+    onClick: () => void
+    firstName: string
+    lastName: string
+    position: string
+    image: string
+}
+
+export interface NavPopupProps {
+    onClose: () => void
+}
+
+export interface SidebarChapterProps {
+    title: string
+    icon: React.ReactElement
+    links: { title: string, link: string, enabled: boolean }[]
+    onCloseSidebar: () => void
+}
+
+export interface SidebarLinkProps {
+    link: string
+    enabled: boolean
+    title: string
+    onCloseSidebar: () => void
+}
+
+export interface ChatItemProps {
+    chat: ChatData
+    activeChat?: ChatData
+    onSelectChat: (chat: ChatData) => void
+}
+
+export interface MessengerProps {
+    chat: ChatData
+    userId: number
+    onSend: (message: string) => void
+}
+
+export interface ChatListProps {
+    chats: ChatData[]
+    setChats: (chats: ChatData[]) => void
+    onSetActiveChat: (chat: ChatData) => void
+}
+
+export interface MessageProps {
+    message: MessageData
+    userId: number
+    themeColor: string
 }

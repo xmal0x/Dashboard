@@ -1,6 +1,3 @@
-import settings from './settings.svg'
-import home from './home.svg'
-import about from './about.svg'
 import avatar from './avatar.webp'
 import avatar6 from './chat/avatar6.webp'
 import avatar5 from './chat/avatar5.webp'
@@ -10,9 +7,6 @@ import avatar2 from './chat/avatar2.webp'
 import avatar1 from './chat/avatar1.png'
 
 export {
-    settings,
-    home,
-    about,
     avatar,
     avatar6,
     avatar5,

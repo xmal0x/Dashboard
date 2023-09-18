@@ -1,20 +1,18 @@
 import React from 'react';
 import {Popover} from "./index";
-import {useMainContext} from "../contexts/MainContextProvider";
 import {notifications} from "../constants";
+import {NavPopupProps} from "../types";
 
-const Notifications = () => {
-    const {handleClosePopovers} = useMainContext()
-
+const Notifications = ({onClose}: NavPopupProps) => {
     return (
-        <Popover title="Notifications" handleClose={handleClosePopovers}>
-            {notifications.map((item, index) => (
+        <Popover title="Notifications" handleClose={onClose}>
+            {notifications.map(({id, text, date}) => (
                 <div
-                    key={index}
-                    className="flex flex-col gap-2 justify-between items-start border-b
+                    key={id}
+                    className="flex-between flex-col gap-2 items-start border-b
                     border-stroke-gray p-4 cursor-pointer hover:bg-light-gray">
-                    <p className="text-sm text-dark-black">{item.text}</p>
-                    <p className="text-xs text-gray">{item.date}</p>
+                    <p className="text-sm text-dark-black">{text}</p>
+                    <p className="text-xs text-gray">{date}</p>
                 </div>
             ))}
         </Popover>

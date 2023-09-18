@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect, useState} from "react";
+import React, {createContext, useContext, useState} from "react";
 
 interface ThemeContext {
     themeColor: string
@@ -7,7 +7,7 @@ interface ThemeContext {
 
 const ThemeCtx = createContext<ThemeContext | null>(null)
 
-export const ThemeContextProvider = ({children}: {children: React.ReactNode}) => {
+export const ThemeContextProvider = ({children}: { children: React.ReactNode }) => {
     const [themeColor, setThemeColor] = useState('#1A97F5')
 
     return (
@@ -23,7 +23,7 @@ export const ThemeContextProvider = ({children}: {children: React.ReactNode}) =>
 export const useThemeContext = () => {
     const themeContext = useContext(ThemeCtx)
 
-    if(!themeContext) {
+    if (!themeContext) {
         throw new Error(
             "ThemeContext has to be used within <ThemeContext.Provider>"
         );

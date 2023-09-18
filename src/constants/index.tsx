@@ -1,5 +1,5 @@
 import {ChatBubbleLeftEllipsisIcon, Squares2X2Icon, UserIcon} from "@heroicons/react/24/outline";
-import {ChatData, Message, User} from "../types";
+import {ChatData, Direction, MessageData, User} from "../types";
 import {avatar1, avatar2, avatar3, avatar4, avatar5, avatar6} from "../assets";
 
 
@@ -94,20 +94,23 @@ export const themeColors = [
 
 export const notifications = [
     {
+        id: 1,
         text: 'You have a new message. You always can check new messages in Menu - Support - Messages. Have a nice day!',
         date: '12 May, 2025'
     },
     {
+        id: 2,
         text: 'Check your calendar for new events. You always can check new events in Menu - Work - Calendar. Have a nice day!',
         date: '24 Feb, 2025'
     },
     {
+        id: 3,
         text: 'Please update your password. You always can update your password in Menu - Profile - Settings. Have a nice day!',
         date: '04 Jan, 2025'
     }
 ]
 
-export const messages: Message[] = [
+export const messages: MessageData[] = [
     {
         senderId: 2,
         message: 'Hi this is John! How are you? Can you answer me about your plans?',
@@ -126,28 +129,28 @@ export const eCommerceData = {
             id: 1,
             title: 'Unique Visitors',
             value: '18.6K',
-            direction: 'up',
+            direction: 'up' as Direction,
             diff: '18%'
         },
         {
             id: 2,
             title: 'Total Pageviews',
             value: '55.9K',
-            direction: 'up',
+            direction: 'up' as Direction,
             diff: '25%'
         },
         {
             id: 3,
             title: 'Bounce Rate',
             value: '54%',
-            direction: 'down',
+            direction: 'down' as Direction,
             diff: '7%'
         },
         {
             id: 4,
             title: 'Visit Duration',
             value: '2m 56s',
-            direction: 'up',
+            direction: 'up' as Direction,
             diff: '12%'
         }
     ],

@@ -1,11 +1,11 @@
 import React, {useCallback, useEffect} from 'react';
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {sideBarItems} from "../constants";
 import {FireIcon} from "@heroicons/react/24/solid";
 import {XMarkIcon} from "@heroicons/react/24/outline";
 import {useMainContext} from "../contexts/MainContextProvider";
 import {useThemeContext} from "../contexts/ThemeContextProvider";
-import {ProLabel} from "./index";
+import {SidebarChapter} from "./index";
 
 const Sidebar = () => {
     const {setActiveSidebar, setScreenSize, screenSize} = useMainContext()
@@ -35,20 +35,12 @@ const Sidebar = () => {
         }
     }, [screenSize, setActiveSidebar]);
 
-    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, linkEnabled: boolean) => {
-        if(linkEnabled) {
-           return
-        }
-
-        e.preventDefault()
-        e.stopPropagation()
-    }
 
     return (
         <aside className="h-screen lg:p-10 md:p-6 p-4 text-white z-50">
-            <div className="flex justify-between items-center">
+            <div className="flex-between-center">
                 <Link to="/" onClick={handleCloseSidebar}
-                      className="flex gap-2 font-medium tracking-tight text-3xl items-center">
+                      className="flex-center gap-2 font-medium tracking-tight text-3xl">
                     <FireIcon className="w-[40px] h-[40px]" style={{color: themeColor}}/>
                     <span>PortyAdmin</span>
                 </Link>
@@ -66,33 +58,7 @@ const Sidebar = () => {
 
             <nav className="mt-4">
                 {sideBarItems.map(item => (
-                    <ol
-                        key={item.title}
-                        className="mb-8"
-                    >
-                        <div className="flex items-center mb-6">
-                            <span className="w-6 h-6">{item.icon}</span>
-                            <p className="capitalize text-white-100 text-xl ml-2">
-                                {item.title}
-                            </p>
-                        </div>
-                        {item.links.map(link => (
-                            <li className="pl-8 flex gap-2 mb-3 w-full" onClick={handleCloseSidebar} key={link.link}>
-                                <NavLink
-                                    to={`/${link.link}`}
-                                    onClick={(e) => handleLinkClick(e, link.enabled)}
-
-                                    className={({isActive}) => `${link.enabled ? 'cursor-pointer hover:text-white': 'cursor-not-allowed'} w-full ${isActive ? 'text-white-100' : 'text-gray'}`}
-                                >
-                                    <div className="flex justify-between">
-                                        <span>{link.title}</span>
-                                        {!link.enabled && <ProLabel/>}
-                                    </div>
-                                </NavLink>
-                            </li>
-                        ))}
-
-                    </ol>
+                    <SidebarChapter key={item.title} {...item} onCloseSidebar={handleCloseSidebar}/>
                 ))}
             </nav>
 
