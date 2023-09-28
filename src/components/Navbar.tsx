@@ -3,7 +3,6 @@ import {useMainContext} from "../contexts/MainContextProvider";
 import {useThemeContext} from "../contexts/ThemeContextProvider";
 import {useUserContext} from "../contexts/UserContextProvider";
 import {MessagesNotification, NavButton, NavProfile, Notifications, Profile} from "./index";
-import popover from "./UI/Popover";
 
 
 const Navbar = () => {
@@ -22,7 +21,7 @@ const Navbar = () => {
                 <NavButton icon={<Bars3Icon className={iconClass}/>} title="Menu"
                            onClick={handleMenuToggle}/>
 
-                <div className="flex-1 flex flex-row gap-2 mx-6">
+                <div className="flex-1 md:flex hidden flex-row gap-2 mx-6">
                     <MagnifyingGlassIcon className="w-[24px] h-[24px] text-gray"/>
                     <input
                         type="text"

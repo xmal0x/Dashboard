@@ -26,12 +26,11 @@ const Messenger = ({userId, chat, onSend}: MessengerProps) => {
                     <div>
                         <p className="text-dark md:text-sm text-xs mb-0.5">{chat?.user.name}</p>
                         <p className="text-text-gray text-xs flex-center">
-                                        <span className={`w-2 h-2 rounded-full block mr-1`}
-                                              style={{backgroundColor: chat.user.online ? '#10B981' : '#DC2626'}}></span>{chat.user.online ? 'Online' : 'Offline'}
+                            <span className={`w-2 h-2 rounded-full block mr-1`}
+                                  style={{backgroundColor: chat.user.online ? '#10B981' : '#DC2626'}}></span>{chat.user.online ? 'Online' : 'Offline'}
                         </p>
                     </div>
                 </div>
-                <button><EllipsisHorizontalIcon className="h-6 w-6"/></button>
             </div>
 
             <div className="flex-1 flex items-end border-b border-stroke-gray overflow-auto">
@@ -43,12 +42,12 @@ const Messenger = ({userId, chat, onSend}: MessengerProps) => {
                 </div>
             </div>
 
-            <div className="h-16 flex-center p-4 w-full">
+            <div className="h-16 flex-center sm:p-4 p-2 w-full">
                 <form onSubmit={handleSend} className="flex w-full">
                     <input
                         type="text"
                         placeholder="Type something here..."
-                        className="flex-1 bg-light-gray outline-none md:py-1.5 py-0.5 px-2 md:text-base text-sm rounded mr-4"
+                        className="w-full bg-light-gray outline-none md:py-1.5 py-0.5 md:px-2 px-0.5 md:text-base text-sm rounded sm:mr-4 mr-2"
                         value={formData.message}
                         onChange={(e) => setFormData({message: e.target.value})}
                     />

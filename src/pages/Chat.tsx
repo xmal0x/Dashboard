@@ -33,16 +33,16 @@ const Chat = () => {
 
     return (
         <div className="page__content flex h-[75vh]">
-            <div className="flex flex-col lg:min-w-[24rem] md:min-w-[12rem] border-r border-stroke-gray">
+            <div className="flex flex-col lg:min-w-[24rem] md:min-w-[12rem] w-fit border-r border-stroke-gray">
                 <ChatList chats={chats} setChats={setChats} onSetActiveChat={handleSelectChat}/>
             </div>
 
-            <div className="w-full flex-between flex-col">
+            <div className="flex-1 flex-between flex-col">
                 {activeChat
                     ? <Messenger chat={activeChat} userId={userId} onSend={handleSend}/>
                     : (
                         <div className="flex-center justify-center h-full">
-                            <p className="text-gray">Select chat and start messaging</p>
+                            <p className="text-gray text-center">Select chat and start messaging</p>
                         </div>
                     )
                 }

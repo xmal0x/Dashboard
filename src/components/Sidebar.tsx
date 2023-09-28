@@ -40,7 +40,7 @@ const Sidebar = () => {
         <aside className="h-screen lg:p-10 md:p-6 p-4 text-white z-50">
             <div className="flex-between-center">
                 <Link to="/" onClick={handleCloseSidebar}
-                      className="flex-center gap-2 font-medium tracking-tight text-3xl">
+                      className="flex-center gap-2 font-medium tracking-tight sm:text-3xl text-xl">
                     <FireIcon className="w-[40px] h-[40px]" style={{color: themeColor}}/>
                     <span>PortyAdmin</span>
                 </Link>

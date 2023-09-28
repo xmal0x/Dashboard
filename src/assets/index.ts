@@ -4,7 +4,7 @@ import avatar5 from './chat/avatar5.webp'
 import avatar4 from './chat/avatar4.webp'
 import avatar3 from './chat/avatar3.webp'
 import avatar2 from './chat/avatar2.webp'
-import avatar1 from './chat/avatar1.png'
+import avatar1 from './chat/avatar1.webp'
 
 export {
     avatar,

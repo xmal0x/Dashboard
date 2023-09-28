@@ -15,7 +15,7 @@ const Settings = () => {
                         <button
                             key={item.id}
                             type="button"
-                            className="sm:w-12 sm:h-12 w-10 h-10 rounded-full cursor-pointer"
+                            className="sm:w-12 mb-1 sm:h-12 w-10 h-10 rounded-full cursor-pointer"
                             style={{backgroundColor: item.color}}
                             onClick={() => setThemeColor(item.color)}
                             title={item.name}
