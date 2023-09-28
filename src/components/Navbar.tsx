@@ -16,7 +16,7 @@ const Navbar = () => {
 
     return (
         <nav className="fixed md:static w-full bg-white border-b border-stroke-gray z-30">
-            <div className="relative flex-between-center p-3 h-20 mx-2">
+            <div className="relative flex-between-center sm:p-3 p-1  h-20 mx-2">
 
                 <NavButton icon={<Bars3Icon className={iconClass}/>} title="Menu"
                            onClick={handleMenuToggle}/>
@@ -29,6 +29,8 @@ const Navbar = () => {
                         placeholder="Type to search..."
                     />
                 </div>
+
+                <div className="flex-1"></div>
 
                 <div className="flex-center md:gap-3 gap-2">
 
